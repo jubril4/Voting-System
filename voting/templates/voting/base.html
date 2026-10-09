@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blockchain Voting System</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
+    nav a { margin-right: 16px; }
+    li { margin-bottom: 14px; word-break: break-all; }
+    .ok { color: #1b6e2d; } .bad { color: #a11a1a; }
+  </style>
+</head>
+<body>
+  <h1>Blockchain Voting System</h1>
+  <nav><a href="{% url 'vote' %}">Vote</a><a href="{% url 'results' %}">Results</a></nav>
+  {% block content %}{% endblock %}
+</body>
+</html>

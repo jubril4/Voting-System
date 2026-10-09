@@ -1,0 +1,13 @@
+{% extends 'voting/base.html' %}
+
+{% block content %}
+<h2>Cast Your Vote</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="candidate_name">Choose a candidate:</label>
+    <select name="candidate_name" id="candidate_name">
+        {% for name in candidates %}<option value="{{ name }}">{{ name }}</option>{% endfor %}
+    </select>
+    <button type="submit">Vote</button>
+</form>
+{% endblock %}

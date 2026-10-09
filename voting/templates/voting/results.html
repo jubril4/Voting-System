@@ -1,0 +1,20 @@
+{% extends 'voting/base.html' %}
+
+{% block content %}
+<h2>Election Results</h2>
+<p class="{% if chain_valid %}ok{% else %}bad{% endif %}">
+  Chain integrity: {% if chain_valid %}verified, no tampering detected{% else %}TAMPERING DETECTED{% endif %}
+</p>
+<ul>{% for name, count in tally.items %}<li>{{ name }}: {{ count }}</li>{% endfor %}</ul>
+<h3>Ledger</h3>
+<ul>
+    {% for block in blockchain %}
+    <li>
+        <strong>Timestamp:</strong> {{ block.timestamp }}<br>
+        <strong>Candidate:</strong> {{ block.candidate_name }}<br>
+        <strong>Hash:</strong> {{ block.hash }}<br>
+        <strong>Previous Hash:</strong> {{ block.previous_hash }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
